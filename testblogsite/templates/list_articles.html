@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Articles</title>
+    </head>
+    <body>
+        <h2> Articles </h2>        
+        {% for article in articles %}
+            <p>{{ forloop.counter }}: <a href="{% url 'article' article.id %}"> {{ article.title }} </a></p>
+            by: <a href='javascript:void(0)'>{{ article.user }} </a>
+            <br/>tags: {% for tag in article.article_tags %}
+                [<a href='#'>{{ tag }}</a>]
+            {% endfor %}
+        {% endfor %}
+    </body>
+</html>
